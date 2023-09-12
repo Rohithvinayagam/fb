@@ -17,7 +17,7 @@ app.post('/register',async(req,res)=>{
   if((usermobno!==undefined)&&(password!==undefined)) { 
     let db=await client.connect()
     let dbo=db.db("new")
-    let out=await dbo.collection("user").insertOne({name:name,password:password})
+    let out=await dbo.collection("user").insertOne({name:usermobno,password:password})
     if( out.acknowledged){
         res.json({"success":true})
     }
